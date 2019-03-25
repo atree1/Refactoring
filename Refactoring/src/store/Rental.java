@@ -2,21 +2,31 @@ package store;
 
 public class Rental {
 
-	private Movie _movie;
-	private int _daysRented;
-	
-	
+	private Movie movie;
+	private int daysRented;
+
 	public Rental(Movie _movie, int _daysRented) {
 		super();
-		this._movie = _movie;
-		this._daysRented = _daysRented;
+		this.movie = _movie;
+		this.daysRented = _daysRented;
 	}
-	public Movie get_movie() {
-		return _movie;
+
+	public Movie getMovie() {
+		return movie;
 	}
-	public int get_daysRented() {
-		return _daysRented;
+
+	public int getDaysRented() {
+		return daysRented;
 	}
+
 	
-	
+	int getFrequentRenterPoints() {
+		 if((getMovie().getPriceCode()==Movie.NEW_RELEASE&&getDaysRented()>1))
+				 {
+			 return 2;
+				 }
+		 else {
+			 return 1;
+		 }
+	 }
 }
